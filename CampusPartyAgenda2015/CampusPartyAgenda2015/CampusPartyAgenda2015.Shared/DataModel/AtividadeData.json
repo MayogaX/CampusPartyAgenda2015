@@ -1,0 +1,95 @@
+{
+    "Groups": [
+        {
+            "UniqueId": "Dia3",
+            "Title": "3 de fevereiro de 2015",
+            "Items": [
+                {
+                    "UniqueId": "a01",
+                    "Title": "Cerimônia de Abertura",
+                    "Subtitle": "Palco Terra",
+                    "Description": "Prepare-se para a melhor Campus Party de todos os tempos.",
+                    "Start": "7:30 p.m.",
+                    "End": "9 p.m."
+                },
+                {
+                    "UniqueId": "a02",
+                    "Title": "Ime Archubong",
+                    "Subtitle": "Palco Terra",
+                    "Description": "Ele lidera a equipe de aceleração estratégica de produto do Facebook, através da criação de parcerias, integrações e produtos e agilidade em Oportunidades de Negócios para empresas líderes em todos os setores, que incluem Airbnb, Apple, Amazon, Dropbox, LiveNation, Microsoft, Netflix, Nike, Spotify e Uber. Ime também colabora com a equipe de Internet.org, liderando o desenvolvimento de conteúdo e produtos de parcerias estratégicas mundialmente. Antes de entrar para o Facebook, Ime atuava na área de Tecnologia Avançada de Desenvolvimento Profissional na IBM, com foco no portfólio global de IBM¹s, o licenciamento de pesquisa de tecnologia de armazenamento. Ele iniciou sua carreira na IBM como engenheiro de software no Grupo de Sistemas e Tecnologia antes de passar para o corporativo e equipe de estratégia. Ime é bacharel em Engenharia Eletrotécnica e de computadores pela universidade de Yale e possui MBA por Stanford.",
+                    "Start": "9 p.m.",
+                    "End": "10 p.m."
+                }
+            ]
+        },
+        {
+            "UniqueId": "Dia4",
+            "Title": "4 de fevereiro de 2015",
+            "Items": [
+                {
+                    "UniqueId": "a03",
+                    "Title": "Projeção de Defiance",
+                    "Subtitle": "Palco Terra",
+                    "Description": "",
+                    "Start": "0 a.m.",
+                    "End": "1 a.m.",
+                    "Color": "#3399FF"
+                },
+                {
+                    "UniqueId": "a04",
+                    "Title": "Segredos que todo blogueiro deveria saber",
+                    "Subtitle": "Palco Mercurio",
+                    "Description": "",
+                    "Start": "0 a.m.",
+                    "End": "1 a.m.",
+                    "Color": "#3399FF"
+                }
+            ]
+        },
+        {
+            "UniqueId": "Dia5",
+            "Title": "5 de fevereiro de 2015",
+            "Items": [
+                {
+                    "UniqueId": "a05",
+                    "Title": "Segredos que todo blogueiro deveria saber",
+                    "Subtitle": "Palco Mercurio",
+                    "Description": "",
+                    "Start": "0 a.m.",
+                    "End": "1 a.m.",
+                    "Color":  "#3399FF"
+                }
+            ]
+        },
+        {
+            "UniqueId": "Dia6",
+            "Title": "6 de fevereiro de 2015",
+            "Items": [
+                {
+                    "UniqueId": "a06",
+                    "Title": "Segredos que todo blogueiro deveria saber",
+                    "Subtitle": "Palco Mercurio",
+                    "Description": "",
+                    "Start": "0 a.m.",
+                    "End": "1 a.m.",
+                    "Color":  "#3399FF"
+                }
+            ]
+        },
+        {
+            "UniqueId": "Dia7",
+            "Title": "7 de fevereiro de 2015",
+            "Items": [
+                {
+                    "UniqueId": "a07",
+                    "Title": "Segredos que todo blogueiro deveria saber",
+                    "Subtitle": "Palco Mercurio",
+                    "Description": "",
+                    "Start": "0 a.m.",
+                    "End": "1 a.m.",
+                    "Color":  "#3399FF"
+                }
+            ]
+        }
+    ]
+}

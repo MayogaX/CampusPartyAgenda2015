@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    d:DataContext="{Binding Source={d:DesignData Source=../CampusPartyAgenda2015.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+    d:DataContext="{Binding Source={d:DesignData Source=../CampusPartyAgenda2015.Shared/DataModel/SampleData.json, Type=data:AtividadeDataSource}}"
     xmlns:data="using:CampusPartyAgenda2015.Data"
     mc:Ignorable="d">
 

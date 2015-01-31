@@ -64,8 +64,8 @@ namespace CampusPartyAgenda2015
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-4");
-            this.DefaultViewModel["Section3Items"] = sampleDataGroup;
+            var atividadeDataGroup = await AtividadeDataSource.GetGroupAsync("Dia3");
+            this.DefaultViewModel["SectionItems"] = atividadeDataGroup;
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace CampusPartyAgenda2015
         {
             HubSection section = e.Section;
             var group = section.DataContext;
-            this.Frame.Navigate(typeof(SectionPage), ((SampleDataGroup)group).UniqueId);
+            this.Frame.Navigate(typeof(SectionPage), ((AtividadeDataGroup)group).UniqueId);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace CampusPartyAgenda2015
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            var itemId = ((AtividadeDataItem)e.ClickedItem).UniqueId;
             this.Frame.Navigate(typeof(ItemPage), itemId);
         }
         #region NavigationHelper registration

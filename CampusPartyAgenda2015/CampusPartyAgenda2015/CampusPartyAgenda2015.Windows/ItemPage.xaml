@@ -17,7 +17,7 @@
     -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
         DataContext="{Binding Item}"
-        d:DataContext="{Binding Groups[0].Items[0], Source={d:DesignData Source=../CampusPartyAgenda2015.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}">
+        d:DataContext="{Binding Groups[0].Items[0], Source={d:DesignData Source=../CampusPartyAgenda2015.Shared/DataModel/SampleData.json, Type=data:AtividadeDataSource}}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>

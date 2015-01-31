@@ -23,11 +23,12 @@ namespace CampusPartyAgenda2015.Data
     /// </summary>
     public class AtividadeDataItem
     {
-        public AtividadeDataItem(String uniqueId, String title, String subtitle, string start, String description, string end)
+        public AtividadeDataItem(String uniqueId, String title, String subtitle, string start, string color, String description, string end)
         {
             this.UniqueId = uniqueId;
             this.Title = title;
             this.Subtitle = subtitle;
+            this.Color = color;
             this.Description = description;
             this.Start = start;
             this.End = end;
@@ -36,6 +37,7 @@ namespace CampusPartyAgenda2015.Data
         public string UniqueId { get; private set; }
         public string Title { get; private set; }
         public string Subtitle { get; private set; }
+        public string Color { get; private set; }
         public string Description { get; private set; }
         public string Start { get; private set; }
         public string End { get; private set; }
@@ -124,18 +126,21 @@ namespace CampusPartyAgenda2015.Data
             foreach (JsonValue groupValue in jsonArray)
             {
                 JsonObject groupObject = groupValue.GetObject();
-                AtividadeDataGroup group = new AtividadeDataGroup(groupObject["UniqueId"].GetString(),
-                                                            groupObject["Title"].GetString(),
-                                                            groupObject["Subtitle"].GetString(),
-                                                            groupObject["Start"].GetString(),
-                                                            groupObject["End"].GetString(),
-                                                            groupObject["Description"].GetString());
+                AtividadeDataGroup group = new AtividadeDataGroup(
+                                                       groupObject["UniqueId"].GetString(),
+                                                       groupObject["Title"].GetString());
 
                 foreach (JsonValue itemValue in groupObject["Items"].GetArray())
                 {
                     JsonObject itemObject = itemValue.GetObject();
-                    group.Items.Add(new AtividadeDataItem(itemObject["UniqueId"].GetString(),
-                                                       itemObject["Title"].GetString()));
+                    group.Items.Add(new AtividadeDataItem(
+                        groupObject["UniqueId"].GetString(),
+                                                            itemObject["Title"].GetString(),
+                                                            itemObject["Subtitle"].GetString(),
+                                                            itemObject["Start"].GetString(),
+                                                            itemObject["Color"].GetString(),
+                                                            itemObject["Description"].GetString(),
+                                                            itemObject["End"].GetString()));
                 }
                 this.Groups.Add(group);
             }

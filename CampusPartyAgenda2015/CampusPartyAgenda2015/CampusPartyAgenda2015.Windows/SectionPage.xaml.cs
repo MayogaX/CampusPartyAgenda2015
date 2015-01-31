@@ -65,7 +65,7 @@ namespace CampusPartyAgenda2015
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var group = await SampleDataSource.GetGroupAsync((string)e.NavigationParameter);
+            var group = await AtividadeDataSource.GetGroupAsync((string)e.NavigationParameter);
             this.DefaultViewModel["Group"] = group;
             this.DefaultViewModel["Items"] = group.Items;
         }
@@ -79,7 +79,7 @@ namespace CampusPartyAgenda2015
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            var itemId = ((AtividadeDataItem)e.ClickedItem).UniqueId;
             this.Frame.Navigate(typeof(ItemPage), itemId);
         }
 

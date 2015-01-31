@@ -15,8 +15,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\SampleDataSource.cs" />
-    <Content Include="$(MSBuildThisFileDirectory)DataModel\SampleData.json" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\AtividadeDataSource.cs" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\campuspartylogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)DataModel\AtividadeData.json" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\MediumGray.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\DarkGray.png" />
