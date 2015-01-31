@@ -21,24 +21,24 @@ namespace CampusPartyAgenda2015.Data
     /// <summary>
     /// Generic item data model.
     /// </summary>
-    public class SampleDataItem
+    public class AtividadeDataItem
     {
-        public SampleDataItem(String uniqueId, String title, String subtitle, String imagePath, String description, String content)
+        public AtividadeDataItem(String uniqueId, String title, String subtitle, string start, String description, string end)
         {
             this.UniqueId = uniqueId;
             this.Title = title;
             this.Subtitle = subtitle;
             this.Description = description;
-            this.ImagePath = imagePath;
-            this.Content = content;
+            this.Start = start;
+            this.End = end;
         }
 
         public string UniqueId { get; private set; }
         public string Title { get; private set; }
         public string Subtitle { get; private set; }
         public string Description { get; private set; }
-        public string ImagePath { get; private set; }
-        public string Content { get; private set; }
+        public string Start { get; private set; }
+        public string End { get; private set; }
 
         public override string ToString()
         {
@@ -49,24 +49,18 @@ namespace CampusPartyAgenda2015.Data
     /// <summary>
     /// Generic group data model.
     /// </summary>
-    public class SampleDataGroup
+    public class AtividadeDataGroup
     {
-        public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description)
+        public AtividadeDataGroup(String uniqueId, String title)
         {
             this.UniqueId = uniqueId;
             this.Title = title;
-            this.Subtitle = subtitle;
-            this.Description = description;
-            this.ImagePath = imagePath;
-            this.Items = new ObservableCollection<SampleDataItem>();
+            this.Items = new ObservableCollection<AtividadeDataItem>();
         }
 
         public string UniqueId { get; private set; }
         public string Title { get; private set; }
-        public string Subtitle { get; private set; }
-        public string Description { get; private set; }
-        public string ImagePath { get; private set; }
-        public ObservableCollection<SampleDataItem> Items { get; private set; }
+        public ObservableCollection<AtividadeDataItem> Items { get; private set; }
 
         public override string ToString()
         {
@@ -77,50 +71,50 @@ namespace CampusPartyAgenda2015.Data
     /// <summary>
     /// Creates a collection of groups and items with content read from a static json file.
     /// 
-    /// SampleDataSource initializes with data read from a static json file included in the 
-    /// project.  This provides sample data at both design-time and run-time.
+    /// AtividadeDataSource initializes with data read from a static json file included in the 
+    /// project.  This provides Atividade data at both design-time and run-time.
     /// </summary>
-    public sealed class SampleDataSource
+    public sealed class AtividadeDataSource
     {
-        private static SampleDataSource _sampleDataSource = new SampleDataSource();
+        private static AtividadeDataSource _AtividadeDataSource = new AtividadeDataSource();
 
-        private ObservableCollection<SampleDataGroup> _groups = new ObservableCollection<SampleDataGroup>();
-        public ObservableCollection<SampleDataGroup> Groups
+        private ObservableCollection<AtividadeDataGroup> _groups = new ObservableCollection<AtividadeDataGroup>();
+        public ObservableCollection<AtividadeDataGroup> Groups
         {
             get { return this._groups; }
         }
 
-        public static async Task<IEnumerable<SampleDataGroup>> GetGroupsAsync()
+        public static async Task<IEnumerable<AtividadeDataGroup>> GetGroupsAsync()
         {
-            await _sampleDataSource.GetSampleDataAsync();
+            await _AtividadeDataSource.GetAtividadeDataAsync();
 
-            return _sampleDataSource.Groups;
+            return _AtividadeDataSource.Groups;
         }
 
-        public static async Task<SampleDataGroup> GetGroupAsync(string uniqueId)
+        public static async Task<AtividadeDataGroup> GetGroupAsync(string uniqueId)
         {
-            await _sampleDataSource.GetSampleDataAsync();
+            await _AtividadeDataSource.GetAtividadeDataAsync();
             // Simple linear search is acceptable for small data sets
-            var matches = _sampleDataSource.Groups.Where((group) => group.UniqueId.Equals(uniqueId));
+            var matches = _AtividadeDataSource.Groups.Where((group) => group.UniqueId.Equals(uniqueId));
             if (matches.Count() == 1) return matches.First();
             return null;
         }
 
-        public static async Task<SampleDataItem> GetItemAsync(string uniqueId)
+        public static async Task<AtividadeDataItem> GetItemAsync(string uniqueId)
         {
-            await _sampleDataSource.GetSampleDataAsync();
+            await _AtividadeDataSource.GetAtividadeDataAsync();
             // Simple linear search is acceptable for small data sets
-            var matches = _sampleDataSource.Groups.SelectMany(group => group.Items).Where((item) => item.UniqueId.Equals(uniqueId));
+            var matches = _AtividadeDataSource.Groups.SelectMany(group => group.Items).Where((item) => item.UniqueId.Equals(uniqueId));
             if (matches.Count() == 1) return matches.First();
             return null;
         }
 
-        private async Task GetSampleDataAsync()
+        private async Task GetAtividadeDataAsync()
         {
             if (this._groups.Count != 0)
                 return;
 
-            Uri dataUri = new Uri("ms-appx:///DataModel/SampleData.json");
+            Uri dataUri = new Uri("ms-appx:///DataModel/AtividadeData.json");
 
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
             string jsonText = await FileIO.ReadTextAsync(file);
@@ -130,21 +124,18 @@ namespace CampusPartyAgenda2015.Data
             foreach (JsonValue groupValue in jsonArray)
             {
                 JsonObject groupObject = groupValue.GetObject();
-                SampleDataGroup group = new SampleDataGroup(groupObject["UniqueId"].GetString(),
+                AtividadeDataGroup group = new AtividadeDataGroup(groupObject["UniqueId"].GetString(),
                                                             groupObject["Title"].GetString(),
                                                             groupObject["Subtitle"].GetString(),
-                                                            groupObject["ImagePath"].GetString(),
+                                                            groupObject["Start"].GetString(),
+                                                            groupObject["End"].GetString(),
                                                             groupObject["Description"].GetString());
 
                 foreach (JsonValue itemValue in groupObject["Items"].GetArray())
                 {
                     JsonObject itemObject = itemValue.GetObject();
-                    group.Items.Add(new SampleDataItem(itemObject["UniqueId"].GetString(),
-                                                       itemObject["Title"].GetString(),
-                                                       itemObject["Subtitle"].GetString(),
-                                                       itemObject["ImagePath"].GetString(),
-                                                       itemObject["Description"].GetString(),
-                                                       itemObject["Content"].GetString()));
+                    group.Items.Add(new AtividadeDataItem(itemObject["UniqueId"].GetString(),
+                                                       itemObject["Title"].GetString()));
                 }
                 this.Groups.Add(group);
             }
